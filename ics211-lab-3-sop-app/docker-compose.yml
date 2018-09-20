@@ -1,0 +1,14 @@
+version: "3"
+services:
+  web:
+    container_name: php-apache
+    build: ./web
+    image: ics211/l3/sop-srv
+    ports:
+      # Publish the port so it's visible on the host at 8080.
+      # access server in browser on host by going to localhost:8080.
+      - "8080:80"
+      - "8081:81"
+    volumes:
+      # Mount the src dir so changes to the code are reflected in the container.
+      - ./src:/var/www/html
